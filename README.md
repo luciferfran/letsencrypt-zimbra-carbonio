@@ -1,4 +1,4 @@
-# letsencrypt-zimbra
+# letsencrypt-zimbra-carbonio
 
 Files to automate the deploy of letsencrypt certificates to zextras carbonio.
 
