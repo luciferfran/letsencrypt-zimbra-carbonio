@@ -27,7 +27,7 @@ common_names=( "example.com" )
 
 
 # letsencrypt tool =========================================
-letsencrypt="/usr/local/bin/certbot"
+letsencrypt="/usr/bin/certbot"
 
 # Issue a cert with "ISRG Root X1" preferably. Change it to false if you
 # want to use the Let's Encrypt default (and expired) "DST Root CA X3"
@@ -35,9 +35,9 @@ letsencrypt="/usr/local/bin/certbot"
 
 
 # zimbra files =============================================
-zimbra_dir="/opt/zimbra"
+zimbra_dir="/opt/zextras"
 
 # following values are zimbra defaults; change it if you need to
-#zimbra_ssl_dir="${zimbra_dir}/ssl/zimbra/commercial"
+zimbra_ssl_dir="${zimbra_dir}/ssl/carbonio/commercial"
 #zimbra_key="${zimbra_ssl_dir}/commercial.key"
 #zimbra_cert="${zimbra_ssl_dir}/commercial.crt"
