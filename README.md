@@ -1,6 +1,6 @@
-# letsencrypt-zimbra
+# letsencrypt-zimbra-carbonio
 
-Files to automate the deploy of letsencrypt certificates to Zimbra.
+Files to automate the deploy of letsencrypt certificates to zextras carbonio.
 
 You will probably find these files usefull when you want to move your
 self-signed Zimbra certificate to the letsencrypt-signed one and automate the
@@ -16,10 +16,10 @@ Enjoy **open-source** and **encryption**!
 
 ## Requirements
 
-- Working installation of *Zimbra Collaboration Suite* (version ≥ 8.7)
-- *certbot* utility (version ≥ 1.6)
+- Working installation of *Zextras Carbonio* (version ≥ 8.7)
+- *certbot* utility (version ≥ 1.28)
 - *openssl* cli tool
-- *sudo* privilege to run *certbot* with `zimbra` user
+- *sudo* privilege to run *certbot* with `zextras` user
 
 
 ## What the scripts do
@@ -48,24 +48,24 @@ See the *help* message of the script (`-h`), example config file
     - Please follow the [official instructions](https://certbot.eff.org/)
       for your distribution
 
-    - For example on *Ubuntu bionic*:
+    - For example on *Ubuntu Focal Fossa*:
 
-        1. Install `pip3`
-
-            ```
-            apt install python3-pip
-            ```
-
-        2. Install `certbot` pip package
+        1. Install `snapd`
 
             ```
-            pip3 install certbot cryptography~=3.3.0 pyOpenSSL~=19.1.0 zope.interface~=5.4
+            sudo snap install core; sudo snap refresh core
+            ```
+
+        2. Install `certbot` snap
+
+            ```
+            sudo snap install --classic certbot
             ```
 
 2. Clone this repository
 
     ```
-    git clone https://github.com/VojtechMyslivec/letsencrypt-zimbra.git /opt/letsencrypt-zimbra
+    git clone https://github.com/luciferfran/letsencrypt-zimbra-carbonio.git /opt/letsencrypt-zimbra
     ```
 
 3. Create and edit config file
@@ -80,7 +80,7 @@ See the *help* message of the script (`-h`), example config file
       `/opt/letsencrypt-zimbra/letsencrypt-zimbra.cfg`
 
 
-4. Add sudo privileges to 'zimbra' user to run certbot
+4. Add sudo privileges to 'zextras' user to run certbot
 
     - Copy prepared sudoers config:
 
@@ -88,16 +88,16 @@ See the *help* message of the script (`-h`), example config file
         cp configs/sudoers.conf /etc/sudoers.d/zimbra_certbot
         ```
 
-    - Test the sudo privilege for 'zimbra' user (no password should be needed)
+    - Test the sudo privilege for 'zextras' user (no password should be needed)
 
         ```
-        sudo -Hu zimbra sudo /usr/local/bin/certbot -h
+        sudo -Hu zextras sudo /usr/bin/certbot -h
         ```
 
 5. Run the script to obtain certificate
 
     ```
-    sudo -Hiu zimbra /opt/letsencrypt-zimbra/letsencrypt-zimbra.sh -v
+    sudo -Hiu zextras /opt/letsencrypt-zimbra/letsencrypt-zimbra.sh -v
     ```
 
     - *Note*: add the `-t ` option to run a test (see below)
@@ -124,7 +124,7 @@ certificate:
 2. Run the script interactively with an extra `-f` (*force renew*) option:
 
     ```
-    sudo -Hiu zimbra /opt/letsencrypt-zimbra/letsencrypt-zimbra.sh -vf
+    sudo -Hiu zextras /opt/letsencrypt-zimbra/letsencrypt-zimbra.sh -vf
     ```
 
     - *Warning*: keep in mind Let's Encrypt *rate limits* (see below) when
